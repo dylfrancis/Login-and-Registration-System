@@ -88,41 +88,55 @@ void login::registration()
     int hashPassword = mystdhash(hashing);
 
     ifstream input("data.txt");
-    while (input >> regId >> regPass)
-    {
-        if (regUser == regId)
-        {
-            int decision;
-            cout << "\n\tUsername already taken.\n";
-            cout << "\tEnter 1 to enter a new one\n";
-            cout << "\tEnter 2 to go back to the menu\n";
-            cout << "\t\tEnter here: ";
-            cin >> decision;
+    input.seekg(0, ios::end);
 
-            if (decision == 1)
+    if (input.tellg() == 0)
+    {
+        ofstream f1("data.txt", ios::app);
+        f1 << regUser << ' ' << hashPassword << endl;
+        system("cls");
+        cout << "\n\t\t\t Registration successful!\n";
+        return;
+    }
+    else
+    {
+        ifstream input("data.txt");
+        while (input >> regId >> regPass)
+        {
+            if (regUser == regId)
             {
-                registration();
-            }
-            else if (decision == 2)
-            {
-                system("cls");
-                cout << "\tReturning to menu\n";
-                return;
+                int decision;
+                cout << "\n\tUsername already taken.\n";
+                cout << "\tEnter 1 to enter a new one\n";
+                cout << "\tEnter 2 to go back to the menu\n";
+                cout << "\t\tEnter here: ";
+                cin >> decision;
+
+                if (decision == 1)
+                {
+                    registration();
+                }
+                else if (decision == 2)
+                {
+                    system("cls");
+                    cout << "\tReturning to menu\n";
+                    return;
+                }
+                else
+                {
+                    system("cls");
+                    cout << "\tInvalid Entry, returning to menu." << endl;
+                    return;
+                }
             }
             else
             {
+                ofstream f1("data.txt", ios::app);
+                f1 << regUser << ' ' << hashPassword << endl;
                 system("cls");
-                cout << "\tInvalid Entry, returning to menu." << endl;
+                cout << "\n\t\t\t Registration successful!\n";
                 return;
             }
-        }
-        else
-        {
-            ofstream f1("data.txt", ios::app);
-            f1 << regUser << ' ' << hashPassword << endl;
-            system("cls");
-            cout << "\n\t\t\t Registration successful!\n";
-            return;
         }
     }
 }
