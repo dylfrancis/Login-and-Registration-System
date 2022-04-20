@@ -12,36 +12,41 @@ using namespace std;
 int main()
 {
     login userLogin;
-    int userChoice;
+    string userChoice;
     cout << "\t\t\t_____________________________________________\n\n\n";
     cout << "\t\t\t         Welcome to the CS 1021 Login!       \n\n";
     cout << "\t\t\t_________           Menu           __________\n\n";
     cout << "\t | Press 1 to LOGIN                              |" << endl;
     cout << "\t | Press 2 to REGISTER                           |" << endl;
-    cout << "\t | Press 3 to EXIT                               |" << endl;
+    cout << "\t | Press 3 if you forgot PASSWORD                |" << endl;
+    cout << "\t | Press 4 to EXIT                               |" << endl;
     cout << "\n\t\t\t Please Enter your choice: ";
     cin >> userChoice;
     cout << endl;
 
-    if (userChoice == 1)
+    if (userChoice == "1")
     {
-        userLogin.isLoggedIn();
+        userLogin.Login();
         main();
     }
-    else if (userChoice == 2)
+    else if (userChoice == "2")
     {
-        userLogin.registration();
+        userLogin.Registration();
         main();
     }
-    else if (userChoice == 3)
+    else if (userChoice == "3")
+    {
+        userLogin.ForgotPassword();
+        main();
+    }
+    else if (userChoice == "4")
     {
         cout << "\t\t\t Goodbye! \n\n";
     }
     else
     {
         system("cls");
-        cout << "\t\t\t Please select from the options above\n"
-             << endl;
+        cout << "\t\t\t Please select from the options above\n";
         main();
     }
 }
