@@ -14,7 +14,7 @@ void login::Login()
     string count;
     string username, password, id, recordPass, recordSecurity;
     system("cls");
-    cout << "\t\t\t Please enter the username and password: " << endl;
+    cout << "\n\t\t\t Please enter the username and password: " << endl;
     cout << "\t\t\t USERNAME: ";
     cin >> username;
     cout << "\t\t\t PASSWORD: ";
@@ -42,7 +42,7 @@ void login::Login()
         while (choice != "2")
         {
             cout << "\t\t\t_____________________________________________\n\n\n";
-            cout << "\t\t\t         Welcome to the CS 1021 Login!       \n\n";
+            cout << "\t\t\t         Welcome to the CS 1021 Login!         \n\n";
             cout << "\t\t\t_______ Currently Logged In: " << username << " ________\n\n";
             cout << "\t\t\t_________           Menu           __________\n\n";
             cout << "\t | Press 1 to PLAY GAME                              |" << endl;
@@ -79,11 +79,11 @@ void login::Registration()
 {
     string regUser, regPassword, regId, regPass, securityQuestion, regSecure, regCount;
     system("cls");
-    cout << "\t\t\t Enter Username: ";
+    cout << "\n\t\t\t Enter Username: ";
     cin >> regUser;
     cout << "\t\t\t Enter Password: ";
     cin >> regPassword;
-    cout << "\t\t\t Security Question - What was your favorite childhood movie?: ";
+    cout << "\t\t\t Security Question: What was your favorite childhood movie?: ";
     cin.ignore();
     getline(cin, securityQuestion);
 
@@ -114,10 +114,10 @@ void login::Registration()
             if (regUser == regId)
             {
                 string decision;
-                cout << "\n\tUsername already taken.\n";
-                cout << "\tEnter 1 to enter a new one\n";
-                cout << "\tEnter 2 to go back to the menu\n";
-                cout << "\t\tEnter choice: ";
+                cout << "\n\t\tUsername already taken.\n";
+                cout << "\t\tEnter 1 to enter a new one\n";
+                cout << "\t\tEnter 2 to go back to the menu\n";
+                cout << "\n\t\tEnter choice: ";
                 cin >> decision;
 
                 if (decision == "1")
@@ -195,16 +195,17 @@ void login::ForgotPassword()
 {
     string forgotChoice, count, secondCount;
     system("cls");
-    cout << "\t\t\tPress 1 to enter USERNAME\n";
+    cout << "\n\t\t\tPress 1 to enter USERNAME\n";
     cout << "\t\t\tPress 2 to go back to MENU\n";
-    cout << "\t\tEnter choice: ";
+    cout << "\n\t\t\tEnter choice: ";
     cin >> forgotChoice;
 
     if (forgotChoice == "1")
     {
         string user, userSecurity, forgotId, forgotPass, forgotSecurity;
         int newHashPassword, forgotSecHash;
-        cout << "\n\t\t\t Enter USERNAME: ";
+        system("cls");
+        cout << "\n\t\tEnter USERNAME: ";
         cin >> user;
         cout << endl;
 
@@ -213,7 +214,7 @@ void login::ForgotPassword()
         {
             if (user == forgotId)
             {
-                cout << "\t\tUser found\n\t\tSecurity Question - What was your favorite childhood movie?: ";
+                cout << "\n\t\tUser found\n\t\tSecurity Question: What was your favorite childhood movie?: ";
                 cin.ignore();
                 getline(cin, userSecurity);
                 cout << endl;
@@ -227,7 +228,7 @@ void login::ForgotPassword()
                     system("cls");
                     string newPass;
                     cout << "\t\tSecurity Question correct\n";
-                    cout << "\t\tEnter new PASSWORD: ";
+                    cout << "\n\t\tEnter new PASSWORD: ";
                     cin >> newPass;
 
                     string newPassHash = newPass;
@@ -240,9 +241,10 @@ void login::ForgotPassword()
                 else
                 {
                     string incorrectChoice;
+                    system("cls");
                     cout << "\t\tSecurity Question incorrect\n";
                     cout << "\t\tPress 1 to Re-Enter\n\t\tPress 2 to return to MENU\n";
-                    cout << "\t\tEnter choice: ";
+                    cout << "\n\t\tEnter choice: ";
                     cin >> incorrectChoice;
 
                     if (incorrectChoice == "1")
@@ -266,9 +268,10 @@ void login::ForgotPassword()
             else
             {
                 string newChoice;
+                system("cls");
                 cout << "\t\tUser not found\n";
                 cout << "\t\tPress 1 to Re-Enter USERNAME\n\t\tPress 2 to return to MENU\n";
-                cout << "\t\tEnter choice: ";
+                cout << "\n\t\tEnter choice: ";
                 cin >> newChoice;
                 if (newChoice == "1")
                 {
@@ -299,7 +302,7 @@ void login::ForgotPassword()
             ofstream f1("data.txt", ios::app);
             f1 << user << ' ' << newHashPassword << ' ' << forgotSecHash << endl;
             system("cls");
-            cout << "\t\t Your password has been updated!\n";
+            cout << "\t\t\t Your password has been updated!\n";
             return;
         }
     }
