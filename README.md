@@ -1,5 +1,5 @@
 # Login-and-Registration-System
-A login and registration system programmed in C++ that utilizes password hashing so nobody but the user is able to see the password
+A login and registration system programmed in C++ that utilizes password hashing so nobody but the user is able to see the password.\n
 This program does the following:
 1. Allows users to register a username, password, and security question into a database (text file)
 2. Once registered, the user's password and security question will be hashed and nobody but the user will be able to know their password/security question
