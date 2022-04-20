@@ -70,6 +70,7 @@ void login::Login()
     }
     else
     {
+        system("cls");
         cout << "\n Username or password is incorrect, please try again or register\n";
     }
 }
