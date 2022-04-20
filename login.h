@@ -1,10 +1,15 @@
 #pragma once
 #include <string.h>
+using namespace std;
 
 class login
 {
+private:
+    void DrunkGame();
+    void DeleteLine(string username);
+
 public:
-    void isLoggedIn();
-    void registration();
-    void drunkgame();
+    void Login();
+    void Registration();
+    void ForgotPassword();
 };
