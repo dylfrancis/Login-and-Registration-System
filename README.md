@@ -8,6 +8,6 @@ This program does the following:
 4. Once logged in, the user has a special game they may play
 5. If a user forgets their password, there is a forget password option for the user which will ask for their username, and if it exists, the security question will be asked for. If the answer matches with what is in the database, the user will be able to use a new password.
 
-Download the ZIP for all files.
+Download the ZIP for all files to properly work.
 
-Note: The main.exe and data.txt must be in the same folder for everything to work properly. If data.txt is not in the same 
+Note: The main.exe and data.txt must be in the same folder for everything to work properly. If data.txt is not in the same folder, the executable will never be able to read user data
